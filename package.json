@@ -1,0 +1,31 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "start": "node index.js",
+  "dev": "nodemon"
+  
+  
+},
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasaswinireddy119/Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yasaswinireddy119/Express/issues"
+  },
+  "homepage": "https://github.com/yasaswinireddy119/Express#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
