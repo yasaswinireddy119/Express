@@ -1,0 +1,68 @@
+-- Drop tables if already exist (for clean run)
+drop table if exists orders;
+drop table if exists users;
+
+-- Users table
+create table users (
+  id serial primary key,
+  name text not null,
+  email text unique not null,
+  created_at timestamp default now()
+);
+
+-- Orders table
+create table orders (
+  id serial primary key,
+  user_id integer not null,
+  amount integer not null,
+  status text not null,
+  created_at timestamp default now(),
+  constraint fk_user
+    foreign key (user_id)
+    references users(id)
+    on delete restrict
+);
+insert into users (name, email) values
+('Alice', 'alice@gmail.com'),
+('Bob', 'bob@gmail.com'),
+('Charlie', 'charlie@gmail.com'),
+('David', 'david@gmail.com'),
+('Eva', 'eva@gmail.com');
+insert into orders (user_id, amount, status) values
+(1, 500, 'pending'),
+(1, 1200, 'completed'),
+(2, 800, 'pending'),
+(2, 300, 'completed'),
+(2, 450, 'completed'),
+(3, 700, 'pending'),
+(4, 1500, 'completed'),
+(5, 200, 'pending'),
+(5, 900, 'completed');
+
+select * from users;
+select * from orders;
+select * from orders
+where user_id = 2;
+select u.id, u.name, count(o.id) as total_orders
+from users u
+join orders o on u.id = o.user_id
+group by u.id
+having count(o.id) > 1;
+select u.name, sum(o.amount) as total_amount
+from users u
+join orders o on u.id = o.user_id
+group by u.name;
+update users
+set email = 'alice_new@gmail.com'
+where id = 1;
+update orders
+set status = 'completed'
+where user_id = 3;
+update orders
+set amount = 1000
+where id = 4;
+delete from orders
+where id = 9;
+delete from orders
+where user_id = 1;
+
