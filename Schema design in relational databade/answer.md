@@ -131,7 +131,7 @@ Storing both age and date_of_birth is redundant because age can be derived from 
 
 8. Importance of Choosing Correct Data Types
 
-Choosing correct data types:
+Choosing correct data types:2
 
 Improves performance
 
