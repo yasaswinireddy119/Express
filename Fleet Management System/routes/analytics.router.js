@@ -1,0 +1,1 @@
+router.get("/analytics",getAnalytics)
