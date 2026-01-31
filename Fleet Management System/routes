@@ -1,0 +1,11 @@
+POST /vehicles/add/
+
+PATCH /vehicles/assign-driver/:vehicleId
+
+GET /vehicles/:vehicleId
+
+
+POST /trips/create/
+PATCH /trips/update/:tripId
+GET /trips/:tripId
+DELETE /trips/delete/:tripId
